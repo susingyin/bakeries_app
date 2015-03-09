@@ -1,19 +1,16 @@
-<h1>Product:</h1>
-<h2><%= @product.title %></h2>
-<h3><%= @product.category %></h3>
+<h3><%= @product.title %></h3>
+<h4><%= @product.category %></h4>
 <p>$<%= @product.price %></p>
 <p><%= image_tag @product.photo %></p>
-
-<hr />
-
-<h2>Reviews</h2>
-<%= render @product.reviews %>
-
-<h2>Add a review:</h2>
-<%= render 'reviews/form' %>
-
-
 
 <%= link_to 'Back', products_path %>
 <%= link_to 'Edit', edit_product_path(@product) %>
 <%= link_to 'Delete', product_path(@product), method: :delete %>
+
+<hr />
+
+<h3>Reviews</h3>
+<%= render @product.reviews %>
+
+<h4>Add a review:</h4>
+<%= render 'reviews/form' %>

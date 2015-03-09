@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BakeriesApp</title>
+  <title>Baked!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -38,6 +38,13 @@
 <div id="container">
 
 	<h1>Welcome to Baked!</h1>
+
+	<%= form_tag "/", method: "GET" do %>
+    	<%= text_field_tag :q %>
+    	<%= submit_tag "Search" %>
+  	<% end %>
+	
+	<hr />
 
 	<%= yield %>
 </div>
