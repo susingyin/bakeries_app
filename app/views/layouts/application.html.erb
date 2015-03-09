@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BakeriesApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  <script src="jquery.raty.js"></script>
+
+</head>
+<body>
+
+<div id="nav">
+
+	<%= link_to "All Products", products_path %>
+	<%= link_to "Add Product", new_product_path %>
+	
+
+	<span style="float:right">
+		<% if user_signed_in? %>
+			Logged in as <strong><%= current_user.email %> </strong> | 
+			<%= link_to "Edit Profile", edit_user_registration_path %> | 
+			<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+		<% else %>
+			<%= link_to "Signup", new_user_registration_path %> | 
+			<%= link_to "Login", user_session_path %>
+		<% end %>
+	</span>
+
+		<%= flash[:notice] if flash[:notice] %>
+		<%= flash[:alert] if flash[:alert] %>
+
+</div>
+
+<div id="container">
+
+	<h1>Welcome to Baked!</h1>
+
+	<%= yield %>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<%= form_for([@product, @product.reviews.build]) do |f| %>
+	<p><%= f.label :stars %></p>
+	<p><%= f.text_field :stars %></p>
+	<p><%= f.label :description %></p>
+	<p><%= f.text_field :description %></p>
+	<p><%= f.submit %></p>
+<% end %>
