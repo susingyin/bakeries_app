@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :show, :edit, :create, :update, :destroy, :index]
 	def index
-  		@products = params[:q] ? Product.search_for(params[:q]) : Product.all
+  		@products = params[:id] ? Product.search_for(params[:id]) : Product.all
   	end
 
 	def create
