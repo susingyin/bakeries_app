@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
 	belongs_to :user
 
 	def self.search_for(query)
-		where('title LIKE :query', query: "%#{query}%")
+		where('title LIKE :query or category LIKE :query', query: "%#{query}%")
 	end
 
 end
